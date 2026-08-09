@@ -25,7 +25,6 @@ export default function App() {
       {/* Navigation Header */}
       <Header
         onOpenResume={() => setResumeOpen(true)}
-        onOpenArchitecture={() => setArchitectureOpen(true)}
       />
 
       {/* Main Page Sections */}

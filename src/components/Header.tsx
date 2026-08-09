@@ -3,12 +3,10 @@ import { playClickSound, playHoverSound, toggleAudioSound, isAudioEnabled } from
 
 interface HeaderProps {
   onOpenResume: () => void;
-  onOpenArchitecture: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   onOpenResume,
-  onOpenArchitecture,
 }) => {
   const [audioOn, setAudioOn] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -90,18 +88,6 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
 
 
-          {/* Source Code Modal */}
-          <button
-            onClick={() => {
-              playClickSound();
-              onOpenArchitecture();
-            }}
-            onMouseEnter={playHoverSound}
-            title="View System Architecture & Source"
-            className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-emerald-400 hover:border-emerald-400/50 transition-all"
-          >
-            <span className="material-symbols-outlined text-lg">code</span>
-          </button>
 
           {/* View Resume Button - Artistic Flair bold white button */}
           <button
