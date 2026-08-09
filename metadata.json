@@ -1,0 +1,6 @@
+{
+  "name": "Tushar Goti - AI/ML & Full Stack Portfolio",
+  "description": "Interactive 3D portfolio of Tushar Goti, Senior AI/ML & Full Stack Engineer with 3D Three.js neural visualizer, interactive WebGL shaders, 3D tilt cards, project showcase, experience timeline, and AI Terminal assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
