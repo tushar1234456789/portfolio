@@ -28,8 +28,8 @@ export const Hero: React.FC = () => {
             <span className="block text-[12px] uppercase tracking-[0.5em] text-white/40">
               Senior AI/ML & Full Stack Architect
             </span>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[11px] font-mono font-semibold uppercase tracking-widest">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-400/10 border border-cyan-500/30 text-cyan-400 text-[11px] font-mono font-semibold uppercase tracking-widest">
+              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
               <span>Available for Global Directives // 2026</span>
             </div>
           </div>
@@ -38,7 +38,7 @@ export const Hero: React.FC = () => {
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tighter text-white uppercase animate-fadeIn" style={{ animationDelay: '0.1s' }}>
             BUILDING <br />
             <span className="text-stroke">DIGITAL</span> <br />
-            <span className="font-serif italic text-emerald-400 font-normal normal-case">Intelligence</span>
+            <span className="text-cyan-400 font-light">Intelligence</span>
           </h1>
 
           {/* Subtitle */}
@@ -52,7 +52,7 @@ export const Hero: React.FC = () => {
               href="#contact"
               onMouseEnter={playHoverSound}
               onClick={playClickSound}
-              className="px-8 py-4 bg-emerald-400 text-black font-bold uppercase text-xs tracking-widest hover:bg-white hover:scale-105 transition-all shadow-xl flex items-center gap-2 rounded-none"
+              className="px-8 py-4 bg-cyan-400 text-black font-bold uppercase text-xs tracking-widest hover:bg-black hover:scale-105 transition-all shadow-xl flex items-center gap-2 rounded-none"
             >
               <span>Deploy Project</span>
               <span className="material-symbols-outlined text-sm">rocket_launch</span>
@@ -63,7 +63,7 @@ export const Hero: React.FC = () => {
           <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 rounded-2xl glass-strong animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
             {PERSONAL_INFO.stats.map((stat) => (
               <div key={stat.label} className="text-center sm:text-left space-y-1">
-                <div className="font-sans text-2xl sm:text-3xl font-black text-emerald-400 tracking-tight">
+                <div className="font-sans text-2xl sm:text-3xl font-black text-cyan-400 tracking-tight">
                   {stat.value}
                 </div>
                 <div className="text-[11px] text-zinc-400 font-medium uppercase tracking-[0.15em]">
@@ -80,20 +80,20 @@ export const Hero: React.FC = () => {
           style={{ animationDelay: '0.2s', transform: `translateY(-${imageTranslateY}px)` }}
         >
           {/* Container Frame */}
-          <div className="w-full h-full rounded-[36px] overflow-hidden border border-emerald-500/30 glass shadow-2xl relative p-3 group">
+          <div className="w-full h-full rounded-[36px] overflow-hidden border border-cyan-500/30 glass shadow-2xl relative p-3 group">
             <div className="relative w-full h-full rounded-[28px] overflow-hidden border border-white/10">
               <img
                 src={PERSONAL_INFO.profileImage}
                 alt={PERSONAL_INFO.name}
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 filter contrast-105 brightness-105 opacity-90 mix-blend-luminosity hover:mix-blend-normal"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent pointer-events-none" />
 
               {/* Overlay Title Tag */}
               <div className="absolute bottom-5 left-5 right-5 p-4 rounded-2xl glass-strong flex justify-between items-center pointer-events-none">
                 <div>
-                  <div className="text-[10px] uppercase tracking-widest text-emerald-400 font-mono font-bold">
+                  <div className="text-[10px] uppercase tracking-widest text-cyan-400 font-mono font-bold">
                     {PERSONAL_INFO.name}
                   </div>
                   <div className="text-sm font-serif italic text-white">
@@ -101,8 +101,8 @@ export const Hero: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-lg shadow-emerald-400/50" />
-                  <span className="text-[10px] font-mono text-emerald-300 uppercase font-semibold">Online</span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shadow-lg shadow-cyan-400/50" />
+                  <span className="text-[10px] font-mono text-cyan-300 uppercase font-semibold">Online</span>
                 </div>
               </div>
             </div>

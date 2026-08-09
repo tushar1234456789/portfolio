@@ -54,8 +54,8 @@ export const Header: React.FC<HeaderProps> = ({
           onClick={playClickSound}
           className="flex items-center gap-2 text-xl font-black tracking-tighter text-white hover:opacity-90 transition-opacity"
         >
-          <span>TUSHAR.G</span>
-          <span className="text-emerald-400 font-bold">/</span>
+          <span>TUSHAR</span>
+          <span className="text-cyan-400 font-bold">GOTI</span>
         </a>
 
         {/* Desktop Navigation - Artistic Flair tracking & style */}
@@ -66,7 +66,7 @@ export const Header: React.FC<HeaderProps> = ({
               href={link.href}
               onMouseEnter={playHoverSound}
               onClick={playClickSound}
-              className="text-white/60 hover:text-white hover:border-b hover:border-emerald-400 pb-0.5 transition-all"
+              className="text-white/60 hover:text-white hover:border-b hover:border-cyan-400 pb-0.5 transition-all"
             >
               {link.name}
             </a>
@@ -80,7 +80,7 @@ export const Header: React.FC<HeaderProps> = ({
             onClick={handleToggleAudio}
             onMouseEnter={playHoverSound}
             title={audioOn ? 'Mute Audio FX' : 'Enable Audio FX'}
-            className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-emerald-400 hover:border-emerald-400/50 transition-all"
+            className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-cyan-400 hover:border-cyan-400/50 transition-all"
           >
             <span className="material-symbols-outlined text-lg">
               {audioOn ? 'volume_up' : 'volume_off'}
@@ -96,7 +96,7 @@ export const Header: React.FC<HeaderProps> = ({
               onOpenResume();
             }}
             onMouseEnter={playHoverSound}
-            className="px-5 py-2.5 bg-white text-black font-bold uppercase text-[11px] tracking-widest hover:scale-105 transition-transform rounded-full shadow-lg flex items-center gap-1.5"
+            className="px-5 py-2.5 bg-white text-black font-bold uppercase text-[11px] tracking-widest hover:bg-cyan-400 hover:scale-105 transition-all rounded-full shadow-lg flex items-center gap-1.5"
           >
             <span className="material-symbols-outlined text-sm">description</span>
             <span>Resume</span>
@@ -129,7 +129,7 @@ export const Header: React.FC<HeaderProps> = ({
                   playClickSound();
                   setMobileMenuOpen(false);
                 }}
-                className="text-[#e0e2e8] hover:text-emerald-400 py-2 border-b border-white/5"
+                className="text-[#e0e2e8] hover:text-cyan-400 py-2 border-b border-white/5"
               >
                 {link.name}
               </a>
@@ -143,7 +143,7 @@ export const Header: React.FC<HeaderProps> = ({
                 setMobileMenuOpen(false);
                 onOpenResume();
               }}
-              className="flex-1 py-2.5 rounded bg-white text-black font-mono text-xs font-semibold flex items-center justify-center gap-2 hover:scale-105 transition-transform"
+              className="flex-1 py-2.5 rounded bg-white text-black font-mono text-xs font-semibold flex items-center justify-center gap-2 hover:bg-cyan-400 transition-colors"
             >
               <span className="material-symbols-outlined text-sm">description</span>
               <span>Resume</span>

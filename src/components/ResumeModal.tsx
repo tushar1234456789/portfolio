@@ -79,7 +79,7 @@ ${TIMELINE.map((t) => `${t.period} | ${t.role} @ ${t.company} (${t.location})\n$
         </div>
 
         {/* Printable Resume Content */}
-        <div className="flex-1 p-6 md:p-10 overflow-y-auto space-y-8 text-[#e0e2e8] print:text-black print:bg-white">
+        <div className="flex-1 p-6 md:p-10 overflow-y-auto space-y-8 text-[#e0e2e8] print:text-black print:bg-black">
           {/* Header */}
           <div className="border-b border-white/10 pb-6 print:border-black">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">

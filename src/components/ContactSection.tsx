@@ -56,7 +56,7 @@ export const ContactSection: React.FC = () => {
             Global Communication Channel
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white">
-            INITIATE DIRECTIVE <span className="font-serif italic text-emerald-400 font-normal normal-case">& Inquiry</span>
+            INITIATE DIRECTIVE <span className="text-cyan-400 font-light">& Inquiry</span>
           </h2>
         </div>
       </ScrollReveal>
@@ -75,10 +75,10 @@ export const ContactSection: React.FC = () => {
                 <a
                   href={`mailto:${PERSONAL_INFO.email}`}
                   onMouseEnter={playHoverSound}
-                  className="flex items-center gap-3 p-4 rounded-2xl glass border border-white/10 hover:border-emerald-400 transition-all group"
+                  className="flex items-center gap-3 p-4 rounded-2xl glass border border-white/10 hover:border-cyan-400 transition-all group"
                 >
-                  <span className="material-symbols-outlined text-emerald-400">mail</span>
-                  <span className="text-white group-hover:text-emerald-400 font-bold">{PERSONAL_INFO.email}</span>
+                  <span className="material-symbols-outlined text-cyan-400">mail</span>
+                  <span className="text-white group-hover:text-cyan-400 font-bold">{PERSONAL_INFO.email}</span>
                 </a>
 
                 <a
@@ -86,7 +86,7 @@ export const ContactSection: React.FC = () => {
                   target="_blank"
                   rel="noreferrer"
                   onMouseEnter={playHoverSound}
-                  className="flex items-center gap-3 p-4 rounded-2xl glass border border-white/10 hover:border-emerald-400 transition-all group"
+                  className="flex items-center gap-3 p-4 rounded-2xl glass border border-white/10 hover:border-cyan-400 transition-all group"
                 >
                   <span className="material-symbols-outlined text-indigo-400">code</span>
                   <span className="text-white group-hover:text-indigo-300 font-bold">GitHub Profile</span>
@@ -97,7 +97,7 @@ export const ContactSection: React.FC = () => {
                   target="_blank"
                   rel="noreferrer"
                   onMouseEnter={playHoverSound}
-                  className="flex items-center gap-3 p-4 rounded-2xl glass border border-white/10 hover:border-emerald-400 transition-all group"
+                  className="flex items-center gap-3 p-4 rounded-2xl glass border border-white/10 hover:border-cyan-400 transition-all group"
                 >
                   <span className="material-symbols-outlined text-rose-400">work</span>
                   <span className="text-white group-hover:text-rose-300 font-bold">LinkedIn Profile</span>
@@ -107,7 +107,7 @@ export const ContactSection: React.FC = () => {
 
             {/* Scope Estimator */}
             <div className="p-8 rounded-3xl glass-strong border border-white/10 space-y-5 shadow-xl">
-              <h4 className="text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-widest">
+              <h4 className="text-[10px] font-mono text-cyan-400 font-bold uppercase tracking-widest">
                 /// Interactive Scope Calculator
               </h4>
 
@@ -129,7 +129,7 @@ export const ContactSection: React.FC = () => {
                       }}
                       className={`p-3 rounded-xl border text-left transition-all ${
                         projectType === type.id
-                          ? 'bg-emerald-500/20 border-emerald-400 text-emerald-300 font-bold'
+                          ? 'bg-cyan-400/20 border-cyan-400 text-cyan-300 font-bold'
                           : 'bg-black/50 border-white/5 text-zinc-400 hover:text-white'
                       }`}
                     >
@@ -142,7 +142,7 @@ export const ContactSection: React.FC = () => {
               <div className="space-y-3 pt-2">
                 <div className="flex justify-between font-mono text-xs text-zinc-300">
                   <span className="uppercase tracking-wider text-[10px] text-zinc-500">Estimated Budget Scope:</span>
-                  <span className="text-emerald-400 font-bold text-sm">${budget}k - ${budget + 15}k USD</span>
+                  <span className="text-cyan-400 font-bold text-sm">${budget}k - ${budget + 15}k USD</span>
                 </div>
                 <input
                   type="range"
@@ -154,7 +154,7 @@ export const ContactSection: React.FC = () => {
                     playTerminalKeySound();
                     setBudget(Number(e.target.value));
                   }}
-                  className="w-full accent-emerald-400 cursor-pointer"
+                  className="w-full accent-cyan-400 cursor-pointer"
                 />
               </div>
             </div>
@@ -165,12 +165,12 @@ export const ContactSection: React.FC = () => {
         <ScrollReveal direction="right">
           <div className="p-8 rounded-3xl glass-strong border border-white/10 space-y-6 shadow-2xl h-full">
             <h3 className="text-xl font-bold text-white font-mono flex items-center gap-2">
-              <span className="text-emerald-400">&gt;</span> Dispatch Transmission
+              <span className="text-cyan-400">&gt;</span> Dispatch Transmission
             </h3>
 
             {status === 'success' ? (
-              <div className="p-8 rounded-2xl bg-emerald-500/10 border border-emerald-400 text-emerald-200 space-y-4 font-mono text-xs animate-fadeIn">
-                <div className="text-xl font-bold flex items-center gap-2 text-emerald-400">
+              <div className="p-8 rounded-2xl bg-cyan-400/10 border border-cyan-400 text-cyan-200 space-y-4 font-mono text-xs animate-fadeIn">
+                <div className="text-xl font-bold flex items-center gap-2 text-cyan-400">
                   <span className="material-symbols-outlined">check_circle</span>
                   Transmission Dispatched
                 </div>
@@ -179,7 +179,7 @@ export const ContactSection: React.FC = () => {
                 </p>
                 <button
                   onClick={() => setStatus('idle')}
-                  className="mt-2 px-6 py-2.5 rounded-full bg-emerald-400 text-black font-bold uppercase tracking-wider text-xs hover:scale-105 transition-transform shadow-xl"
+                  className="mt-2 px-6 py-2.5 rounded-full bg-cyan-400 text-black font-bold uppercase tracking-wider text-xs hover:scale-105 transition-transform shadow-xl"
                 >
                   Send Another Message
                 </button>
@@ -213,7 +213,7 @@ export const ContactSection: React.FC = () => {
                       setFormData({ ...formData, name: e.target.value });
                     }}
                     placeholder="e.g. Alex Vance (Apex Labs)"
-                    className="w-full p-4 rounded-2xl bg-black/60 border border-white/10 text-white focus:border-emerald-400 focus:outline-none transition-colors"
+                    className="w-full p-4 rounded-2xl bg-black/60 border border-white/10 text-white focus:border-cyan-400 focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -228,7 +228,7 @@ export const ContactSection: React.FC = () => {
                       setFormData({ ...formData, email: e.target.value });
                     }}
                     placeholder="alex@company.com"
-                    className="w-full p-4 rounded-2xl bg-black/60 border border-white/10 text-white focus:border-emerald-400 focus:outline-none transition-colors"
+                    className="w-full p-4 rounded-2xl bg-black/60 border border-white/10 text-white focus:border-cyan-400 focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -243,7 +243,7 @@ export const ContactSection: React.FC = () => {
                       setFormData({ ...formData, message: e.target.value });
                     }}
                     placeholder="Describe your timeline, technical goals, and system requirements..."
-                    className="w-full p-4 rounded-2xl bg-black/60 border border-white/10 text-white focus:border-emerald-400 focus:outline-none transition-colors"
+                    className="w-full p-4 rounded-2xl bg-black/60 border border-white/10 text-white focus:border-cyan-400 focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -254,7 +254,7 @@ export const ContactSection: React.FC = () => {
                   className={`w-full py-4 rounded-full font-bold uppercase text-xs tracking-widest transition-transform shadow-xl flex items-center justify-center gap-2 ${
                     status === 'submitting'
                       ? 'bg-zinc-600 text-zinc-400 cursor-not-allowed'
-                      : 'bg-emerald-400 text-black hover:scale-105'
+                      : 'bg-cyan-400 text-black hover:scale-105'
                   }`}
                 >
                   <span>{status === 'submitting' ? 'Transmitting...' : 'Transmit Inquiry'}</span>
