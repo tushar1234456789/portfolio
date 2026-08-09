@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { BackgroundShader } from './components/BackgroundShader';
+import { useState, useRef } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
@@ -10,28 +9,23 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 
 import { ResumeModal } from './components/ResumeModal';
-import { SourceCodeModal } from './components/SourceCodeModal';
+import { useSmoothScroll } from './hooks/useSmoothScroll';
 
 export default function App() {
-
   const [resumeOpen, setResumeOpen] = useState(false);
-  const [architectureOpen, setArchitectureOpen] = useState(false);
+  const mainRef = useRef<HTMLElement>(null);
+  
+  // Initialize smooth scroll
+  useSmoothScroll();
 
   return (
-    <div className="relative min-h-screen bg-[#0A0A0C] text-[#e0e2e8] selection:bg-[#00f0ff] selection:text-black overflow-x-hidden font-sans">
-      {/* Interactive WebGL Shader Background */}
-      <BackgroundShader />
-
+    <div className="relative min-h-screen bg-[#0A0A0C] text-[#e0e2e8] selection:bg-emerald-400 selection:text-black overflow-x-hidden font-sans">
       {/* Navigation Header */}
-      <Header
-        onOpenResume={() => setResumeOpen(true)}
-      />
+      <Header onOpenResume={() => setResumeOpen(true)} />
 
       {/* Main Page Sections */}
-      <main className="relative z-10 space-y-12">
-        <Hero
-          onOpenArchitecture={() => setArchitectureOpen(true)}
-        />
+      <main ref={mainRef} className="relative z-10 space-y-12 pb-24">
+        <Hero />
         <AboutSection />
         <TechnicalArsenal />
         <ProjectShowcase />
@@ -43,12 +37,7 @@ export default function App() {
       <Footer />
 
       {/* Modals & Drawers */}
-
       <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />
-      <SourceCodeModal
-        isOpen={architectureOpen}
-        onClose={() => setArchitectureOpen(false)}
-      />
     </div>
   );
 }

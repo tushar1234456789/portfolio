@@ -1,153 +1,132 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { PROJECTS } from '../data/portfolioData';
 import { Project } from '../types';
-import { ThreeHeroCanvas } from './ThreeHeroCanvas';
 import { playClickSound, playHoverSound } from '../utils/audioFX';
+import { useDeviceCapability } from '../hooks/useDeviceCapability';
+import { TiltCard } from './TiltCard';
+import { ScrollReveal } from './ScrollReveal';
 
 export const ProjectShowcase: React.FC = () => {
   const [filter, setFilter] = useState<string>('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [interactive3dMap, setInteractive3dMap] = useState<Record<string, boolean>>({});
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const filteredProjects =
-    filter === 'all' ? PROJECTS : PROJECTS.filter((p) => p.category === filter);
-
-  const toggle3dMode = (id: string, e: React.MouseEvent) => {
-    e.stopPropagation();
-    playClickSound();
-    setInteractive3dMap((prev) => ({ ...prev, [id]: !prev[id] }));
-  };
+  const filteredProjects = filter === 'all' ? PROJECTS : PROJECTS.filter((p) => p.category === filter);
 
   return (
-    <section id="projects" className="py-24 px-6 md:px-12 max-w-[1280px] mx-auto relative z-10">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6 border-b border-white/10 pb-8">
-        <div>
-          <span className="block text-[12px] uppercase tracking-[0.4em] text-white/40 mb-2">
-            Case Studies & Systems
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white">
-            FEATURED DIRECTIVES <span className="font-serif italic text-emerald-400 font-normal normal-case">& Engineering Specs</span>
-          </h2>
-        </div>
+    <section id="projects" className="py-24 relative z-10 w-full overflow-hidden" ref={containerRef}>
+      {/* Header Container - Fixed inside the section during pinning */}
+      <div className="px-6 md:px-12 max-w-[1280px] mx-auto w-full">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6 border-b border-white/10 pb-8">
+          <div>
+            <span className="block text-[12px] uppercase tracking-[0.4em] text-white/40 mb-2">
+              Case Studies & Systems
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white">
+              FEATURED DIRECTIVES <span className="font-serif italic text-emerald-400 font-normal normal-case">& Engineering Specs</span>
+            </h2>
+          </div>
 
-        {/* Filters */}
-        <div className="flex flex-wrap gap-2 text-xs">
-          {[
-            { id: 'all', label: 'All Projects' },
-            { id: 'ai_ml', label: 'AI & RAG' },
-            { id: 'systems', label: 'High-Perf Systems' },
-            { id: 'graphics', label: '3D & WebGL' },
-          ].map((item) => (
-            <button
-              key={item.id}
-              onClick={() => {
-                playClickSound();
-                setFilter(item.id);
-              }}
-              onMouseEnter={playHoverSound}
-              className={`px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold transition-all ${
-                filter === item.id
-                  ? 'bg-white text-black shadow-xl scale-105'
-                  : 'bg-zinc-900 text-zinc-400 hover:text-white border border-white/10'
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
+          <div className="flex flex-wrap gap-2 text-xs">
+            {[
+              { id: 'all', label: 'All Projects' },
+              { id: 'ai_ml', label: 'AI & RAG' },
+              { id: 'systems', label: 'High-Perf Systems' },
+              { id: 'graphics', label: '3D & WebGL' },
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => {
+                  playClickSound();
+                  setFilter(item.id);
+                }}
+                onMouseEnter={playHoverSound}
+                className={`px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold transition-all ${
+                  filter === item.id
+                    ? 'bg-white text-black shadow-xl scale-105'
+                    : 'bg-zinc-900 text-zinc-400 hover:text-white border border-white/10'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {filteredProjects.map((project) => {
-          const is3d = !!interactive3dMap[project.id];
-
-          return (
-            <div
-              key={project.id}
-              onClick={() => {
-                playClickSound();
-                setSelectedProject(project);
-              }}
-              onMouseEnter={playHoverSound}
-              className="p-8 rounded-3xl bg-zinc-900/90 border border-white/10 hover:border-emerald-400/50 transition-all hover:shadow-2xl group cursor-pointer flex flex-col justify-between shadow-xl"
-            >
-              <div>
-                {/* Visual Viewport Header */}
-                <div className="relative h-64 w-full rounded-2xl overflow-hidden border border-white/10 mb-6 bg-black">
-                  {is3d ? (
-                    <div className="w-full h-full bg-black/90">
-                      <ThreeHeroCanvas modelType={project.model3dType || 'brain'} />
-                    </div>
-                  ) : (
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100"
-                    />
-                  )}
-
-                  {/* 3D Viewport Toggle Button */}
-                  <button
-                    onClick={(e) => toggle3dMode(project.id, e)}
-                    className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-emerald-400/40 text-emerald-400 text-[11px] font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 hover:bg-emerald-400 hover:text-black transition-all shadow-xl z-20"
-                  >
-                    <span className="material-symbols-outlined text-sm">
-                      {is3d ? 'image' : '3d_rotation'}
-                    </span>
-                    <span>{is3d ? 'Image View' : '3D Canvas'}</span>
-                  </button>
-
-                  <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2 z-10 pointer-events-none">
-                    {project.metrics.map((m) => (
-                      <div
-                        key={m.label}
-                        className="px-3 py-1 rounded-full bg-black/90 backdrop-blur-md border border-white/10 font-mono text-[11px]"
-                      >
-                        <span className="text-zinc-400">{m.label}: </span>
-                        <span className="text-emerald-400 font-bold">{m.value}</span>
+      {/* Projects Vertical Wrapper */}
+      <div className="w-full flex flex-col gap-16 px-6 md:px-12 max-w-[1280px] mx-auto">
+        {filteredProjects.map((project, idx) => (
+          <ScrollReveal key={project.id} delay={idx * 0.1}>
+            <div className="w-full">
+              <TiltCard maxTilt={2} scale={1.01}>
+                <div
+                  onClick={() => {
+                    playClickSound();
+                    setSelectedProject(project);
+                  }}
+                  onMouseEnter={playHoverSound}
+                  className="p-6 md:p-10 rounded-[32px] glass-strong border border-white/10 hover:border-emerald-400/50 transition-all cursor-pointer flex flex-col justify-between shadow-2xl h-full group"
+                >
+                  <div className="flex flex-col lg:flex-row gap-12 items-center h-full">
+                    {/* Left: Image */}
+                    <div className="w-full lg:w-1/2 h-64 lg:h-[450px] rounded-2xl overflow-hidden border border-white/10 relative bg-black shrink-0">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
+                      />
+                      
+                      <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2 z-10 pointer-events-none">
+                        {project.metrics.map((m) => (
+                          <div
+                            key={m.label}
+                            className="px-3 py-1 rounded-full glass border border-white/10 font-mono text-[11px]"
+                          >
+                            <span className="text-zinc-400">{m.label}: </span>
+                            <span className="text-emerald-400 font-bold">{m.value}</span>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    </div>
+
+                    {/* Right: Content */}
+                    <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-6">
+                      <h3 className="text-3xl lg:text-4xl font-bold text-white group-hover:text-emerald-400 transition-colors tracking-tight leading-none">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm lg:text-base text-zinc-400 leading-relaxed font-light">{project.shortDesc}</p>
+
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono text-[11px]"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="flex justify-between items-center pt-6 border-t border-white/10 font-mono text-xs">
+                        <span className="text-emerald-400 font-bold flex items-center gap-1 group-hover:translate-x-2 transition-transform uppercase tracking-wider">
+                          <span>Inspect Architecture</span>
+                          <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-
-                {/* Project Title & Short Desc */}
-                <h3 className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors mb-2 tracking-tight">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-zinc-400 mb-6 leading-relaxed font-light">{project.shortDesc}</p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono text-[11px]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Action Footer */}
-              <div className="flex justify-between items-center pt-4 border-t border-white/10 font-mono text-xs">
-                <span className="text-emerald-400 font-bold flex items-center gap-1 group-hover:translate-x-1.5 transition-transform uppercase tracking-wider">
-                  <span>Inspect Architecture</span>
-                  <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                </span>
-                <span className="text-zinc-500 text-[10px] uppercase tracking-widest">Deep Spec</span>
-              </div>
+              </TiltCard>
             </div>
-          );
-        })}
+          </ScrollReveal>
+        ))}
       </div>
 
       {/* Deep Spec Project Modal */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl animate-fadeIn">
-          <div className="w-full max-w-3xl max-h-[90vh] overflow-y-auto p-8 rounded-3xl bg-zinc-900 border border-emerald-500/40 shadow-2xl space-y-6 relative">
+          <div className="w-full max-w-3xl max-h-[90vh] overflow-y-auto p-8 rounded-3xl glass-strong border border-emerald-500/40 shadow-2xl space-y-6 relative">
             <button
               onClick={() => {
                 playClickSound();
@@ -180,7 +159,7 @@ export const ProjectShowcase: React.FC = () => {
             </div>
 
             {/* Key Performance Metrics */}
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {selectedProject.metrics.map((m) => (
                 <div key={m.label} className="p-4 rounded-2xl bg-black/60 border border-white/5 text-center">
                   <div className="text-[10px] text-zinc-500 font-mono uppercase tracking-wider">{m.label}</div>

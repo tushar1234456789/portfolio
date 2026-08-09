@@ -129,7 +129,7 @@ export const Header: React.FC<HeaderProps> = ({
                   playClickSound();
                   setMobileMenuOpen(false);
                 }}
-                className="text-[#e0e2e8] hover:text-[#00f0ff] py-2 border-b border-white/5"
+                className="text-[#e0e2e8] hover:text-emerald-400 py-2 border-b border-white/5"
               >
                 {link.name}
               </a>
@@ -143,7 +143,7 @@ export const Header: React.FC<HeaderProps> = ({
                 setMobileMenuOpen(false);
                 onOpenResume();
               }}
-              className="flex-1 py-2.5 rounded bg-[#00f0ff] text-black font-mono text-xs font-semibold flex items-center justify-center gap-2"
+              className="flex-1 py-2.5 rounded bg-white text-black font-mono text-xs font-semibold flex items-center justify-center gap-2 hover:scale-105 transition-transform"
             >
               <span className="material-symbols-outlined text-sm">description</span>
               <span>Resume</span>
