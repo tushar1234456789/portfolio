@@ -2,16 +2,16 @@
 
 /* ─── Design Tokens ─── */
 :root {
-  --color-bg: #0A0A0C;
-  --color-surface: #101417;
-  --color-surface-2: #181c20;
-  --color-text: #e0e2e8;
-  --color-text-muted: #71717a;
-  --color-emerald: #34d399;
-  --color-emerald-dim: #064e3b;
-  --color-indigo: #6366f1;
-  --color-indigo-dim: #1e1b4b;
-  --color-border: rgba(255, 255, 255, 0.08);
+  --color-bg: #ffffff;
+  --color-surface: #f8fafc;
+  --color-surface-2: #f1f5f9;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-cyan: #0891b2;
+  --color-cyan-dim: #cffafe;
+  --color-indigo: #4f46e5;
+  --color-indigo-dim: #e0e7ff;
+  --color-border: rgba(0, 0, 0, 0.1);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -38,8 +38,8 @@
   }
 
   @keyframes subtleGlow {
-    0%, 100% { box-shadow: 0 0 20px rgba(52, 211, 153, 0.15); }
-    50% { box-shadow: 0 0 35px rgba(52, 211, 153, 0.3); }
+    0%, 100% { box-shadow: 0 0 20px rgba(34, 211, 238, 0.15); }
+    50% { box-shadow: 0 0 35px rgba(34, 211, 238, 0.3); }
   }
 
   .animate-fadeIn {
@@ -63,21 +63,21 @@
     color: transparent;
   }
 
-  .text-stroke-emerald {
-    -webkit-text-stroke: 1.5px #34d399;
+  .text-stroke-cyan {
+    -webkit-text-stroke: 1.5px var(--color-cyan);
     color: transparent;
   }
 
   /* Glass surface utility */
   .glass {
-    background: rgba(16, 20, 23, 0.7);
+    background: rgba(10, 17, 30, 0.7);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .glass-strong {
-    background: rgba(16, 20, 23, 0.85);
+    background: rgba(10, 17, 30, 0.85);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
     border: 1px solid rgba(255, 255, 255, 0.12);
@@ -86,7 +86,7 @@
 
 /* ─── Base Typography ─── */
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text);
   overflow-x: hidden;
@@ -130,17 +130,17 @@ html.lenis, html.lenis body {
 ::-webkit-scrollbar-thumb {
   background: var(--color-surface-2);
   border-radius: 3px;
-  border: 1px solid rgba(52, 211, 153, 0.15);
+  border: 1px solid rgba(34, 211, 238, 0.15);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-emerald);
+  background: var(--color-cyan);
 }
 
 /* ─── Selection ─── */
 ::selection {
-  background: var(--color-emerald);
-  color: black;
+  background: var(--color-cyan);
+  color: white;
 }
 
 /* ─── Reduced Motion ─── */

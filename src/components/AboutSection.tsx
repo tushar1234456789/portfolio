@@ -42,7 +42,7 @@ export const AboutSection: React.FC = () => {
               Engineering Profile
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white">
-              THE ARCHITECT <span className="font-serif italic text-emerald-400 font-normal normal-case">behind the code</span>
+              THE ARCHITECT <span className="text-cyan-400 font-light">behind the code</span>
             </h2>
           </div>
           <div className="flex gap-2 flex-wrap">
@@ -56,7 +56,7 @@ export const AboutSection: React.FC = () => {
                 onMouseEnter={playHoverSound}
                 className={`px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold transition-all ${
                   activeTab === tab
-                    ? 'bg-white text-black shadow-xl scale-105'
+                    ? 'bg-cyan-400 text-black shadow-[0_0_15px_rgba(34,211,238,0.4)] scale-105'
                     : 'bg-zinc-900 text-zinc-400 hover:text-white border border-white/10'
                 }`}
               >
@@ -74,7 +74,7 @@ export const AboutSection: React.FC = () => {
             <div className="lg:col-span-5 space-y-6 text-zinc-300 leading-relaxed font-light text-base">
               <ScrollReveal delay={0.1}>
                 <p className="text-lg text-white font-normal leading-snug">
-                  As a <strong className="font-bold text-emerald-400">Senior AI/ML & Full Stack Architect</strong> with 8+ years of engineering tenure, I specialize in building high-concurrency intelligence systems and web platforms.
+                  As a <strong className="font-bold text-cyan-400">Senior AI/ML & Full Stack Architect</strong> with 8+ years of engineering tenure, I specialize in building high-concurrency intelligence systems and web platforms.
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.2}>
@@ -83,8 +83,8 @@ export const AboutSection: React.FC = () => {
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.3}>
-                <div className="p-6 rounded-3xl glass border border-emerald-500/30 text-xs font-mono text-emerald-400 space-y-2 shadow-2xl relative overflow-hidden group">
-                  <div className="absolute inset-0 bg-emerald-400/5 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+                <div className="p-6 rounded-3xl glass border border-cyan-500/30 text-xs font-mono text-cyan-400 space-y-2 shadow-2xl relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-cyan-400/5 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-out" />
                   <div className="uppercase tracking-widest text-zinc-500 relative z-10">// Core Directive:</div>
                   <div className="text-white text-sm font-sans italic font-serif relative z-10">"Build clean, deterministic interfaces over high-dimensional probabilistic AI."</div>
                 </div>
@@ -97,13 +97,13 @@ export const AboutSection: React.FC = () => {
                   <TiltCard maxTilt={10} perspective={1000} scale={1.02}>
                     <div
                       onMouseEnter={playHoverSound}
-                      className="h-full p-6 rounded-3xl glass border border-white/10 hover:border-emerald-400/50 transition-colors shadow-xl group relative overflow-hidden"
+                      className="h-full p-6 rounded-3xl glass border border-white/10 hover:border-cyan-400/50 transition-colors shadow-xl group relative overflow-hidden"
                     >
                       <div className="flex justify-between items-start mb-4 relative z-10">
                         <span className="material-symbols-outlined text-3xl transition-transform group-hover:scale-110" style={{ color: pillar.color }}>
                           {pillar.icon}
                         </span>
-                        <span className="text-xs font-mono font-bold text-zinc-600 group-hover:text-emerald-400 transition-colors">
+                        <span className="text-xs font-mono font-bold text-zinc-600 group-hover:text-cyan-400 transition-colors">
                           0{idx + 1}
                         </span>
                       </div>
@@ -120,11 +120,11 @@ export const AboutSection: React.FC = () => {
         {activeTab === 'stack' && (
           <ScrollReveal>
             <div className="p-8 rounded-3xl glass border border-white/10 space-y-6 shadow-2xl animate-fadeIn">
-              <h3 className="text-xs uppercase tracking-[0.3em] text-emerald-400 font-mono font-bold">/// Technical Arsenal & Stack Spectrum</h3>
+              <h3 className="text-xs uppercase tracking-[0.3em] text-cyan-400 font-mono font-bold">/// Technical Arsenal & Stack Spectrum</h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 font-mono text-xs">
                 <TiltCard>
                   <div className="h-full space-y-3 p-5 rounded-2xl bg-black/50 border border-white/5">
-                    <div className="text-emerald-400 font-bold text-sm uppercase tracking-wider">AI & Machine Learning</div>
+                    <div className="text-cyan-400 font-bold text-sm uppercase tracking-wider">AI & Machine Learning</div>
                     <ul className="text-zinc-300 space-y-2 list-disc list-inside font-sans">
                       <li>Llama 3, Gemini, Claude APIs</li>
                       <li>PyTorch, TensorFlow, HuggingFace</li>
@@ -165,12 +165,12 @@ export const AboutSection: React.FC = () => {
 
         {activeTab === 'architecture' && (
           <ScrollReveal>
-            <div className="p-8 rounded-3xl glass border border-emerald-500/30 font-mono text-xs space-y-4 shadow-2xl animate-fadeIn">
+            <div className="p-8 rounded-3xl glass border border-cyan-500/30 font-mono text-xs space-y-4 shadow-2xl animate-fadeIn">
               <div className="flex justify-between items-center text-zinc-400 border-b border-white/10 pb-3">
-                <span className="text-emerald-400 font-bold">system_architecture_manifest.ts</span>
-                <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] animate-pulse">STATUS: SYNCHRONIZED</span>
+                <span className="text-cyan-400 font-bold">system_architecture_manifest.ts</span>
+                <span className="px-2.5 py-0.5 rounded-full bg-cyan-400/20 text-cyan-300 text-[10px] animate-pulse">STATUS: SYNCHRONIZED</span>
               </div>
-              <pre className="text-emerald-200 overflow-x-auto p-5 rounded-2xl bg-black/80 leading-relaxed font-mono selection:bg-emerald-400 selection:text-black">
+              <pre className="text-cyan-200 overflow-x-auto p-5 rounded-2xl bg-black/80 leading-relaxed font-mono selection:bg-cyan-400 selection:text-black">
 {`// Architectural Blueprint - Tushar Goti Portfolio Ecosystem
 import { RAGPipeline } from '@ai/core';
 import { MicroserviceCluster } from '@cloud/k8s';

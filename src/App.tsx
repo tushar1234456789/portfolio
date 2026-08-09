@@ -19,7 +19,7 @@ export default function App() {
   useSmoothScroll();
 
   return (
-    <div className="relative min-h-screen bg-[#0A0A0C] text-[#e0e2e8] selection:bg-emerald-400 selection:text-black overflow-x-hidden font-sans">
+    <div className="relative min-h-screen bg-[#0A0A0C] text-[#e0e2e8] selection:bg-cyan-400 selection:text-black overflow-x-hidden font-sans">
       {/* Navigation Header */}
       <Header onOpenResume={() => setResumeOpen(true)} />
 
