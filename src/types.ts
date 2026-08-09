@@ -35,10 +35,3 @@ export interface TimelineItem {
   highlights: string[];
   technologies: string[];
 }
-
-export interface ChatMessage {
-  id: string;
-  sender: 'user' | 'assistant';
-  text: string;
-  timestamp: string;
-}

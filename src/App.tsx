@@ -8,12 +8,12 @@ import { ProjectShowcase } from './components/ProjectShowcase';
 import { TimelineSection } from './components/TimelineSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { AITerminal } from './components/AITerminal';
+
 import { ResumeModal } from './components/ResumeModal';
 import { SourceCodeModal } from './components/SourceCodeModal';
 
 export default function App() {
-  const [terminalOpen, setTerminalOpen] = useState(false);
+
   const [resumeOpen, setResumeOpen] = useState(false);
   const [architectureOpen, setArchitectureOpen] = useState(false);
 
@@ -24,7 +24,6 @@ export default function App() {
 
       {/* Navigation Header */}
       <Header
-        onOpenTerminal={() => setTerminalOpen(true)}
         onOpenResume={() => setResumeOpen(true)}
         onOpenArchitecture={() => setArchitectureOpen(true)}
       />
@@ -32,7 +31,6 @@ export default function App() {
       {/* Main Page Sections */}
       <main className="relative z-10 space-y-12">
         <Hero
-          onOpenTerminal={() => setTerminalOpen(true)}
           onOpenArchitecture={() => setArchitectureOpen(true)}
         />
         <AboutSection />
@@ -46,7 +44,7 @@ export default function App() {
       <Footer />
 
       {/* Modals & Drawers */}
-      <AITerminal isOpen={terminalOpen} onClose={() => setTerminalOpen(false)} />
+
       <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />
       <SourceCodeModal
         isOpen={architectureOpen}

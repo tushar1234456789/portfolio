@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { playClickSound, playHoverSound, toggleAudioSound, isAudioEnabled } from '../utils/audioFX';
 
 interface HeaderProps {
-  onOpenTerminal: () => void;
   onOpenResume: () => void;
   onOpenArchitecture: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
-  onOpenTerminal,
   onOpenResume,
   onOpenArchitecture,
 }) => {
@@ -91,19 +89,6 @@ export const Header: React.FC<HeaderProps> = ({
             </span>
           </button>
 
-          {/* AI Terminal Trigger */}
-          <button
-            onClick={() => {
-              playClickSound();
-              onOpenTerminal();
-            }}
-            onMouseEnter={playHoverSound}
-            title="Open AI Agent Terminal"
-            className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-400 transition-all text-[11px] uppercase tracking-widest font-semibold"
-          >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>AI Agent</span>
-          </button>
 
           {/* Source Code Modal */}
           <button
@@ -165,17 +150,7 @@ export const Header: React.FC<HeaderProps> = ({
             ))}
           </nav>
           <div className="flex flex-wrap gap-3 pt-4">
-            <button
-              onClick={() => {
-                playClickSound();
-                setMobileMenuOpen(false);
-                onOpenTerminal();
-              }}
-              className="flex-1 py-2.5 rounded bg-[#00363a] text-[#dbfcff] border border-[#00f0ff]/40 font-mono text-xs flex items-center justify-center gap-2"
-            >
-              <span className="material-symbols-outlined text-sm text-[#00f0ff]">terminal</span>
-              <span>AI Assistant</span>
-            </button>
+
             <button
               onClick={() => {
                 playClickSound();

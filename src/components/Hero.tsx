@@ -4,11 +4,10 @@ import { ThreeHeroCanvas } from './ThreeHeroCanvas';
 import { playClickSound, playHoverSound } from '../utils/audioFX';
 
 interface HeroProps {
-  onOpenTerminal: () => void;
   onOpenArchitecture: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenTerminal, onOpenArchitecture }) => {
+export const Hero: React.FC<HeroProps> = ({ onOpenArchitecture }) => {
   return (
     <section id="home" className="min-h-[85vh] flex flex-col justify-center px-6 md:px-12 max-w-[1280px] mx-auto pt-28 pb-12 relative z-10">
       {/* Background ambient glow orbs from Artistic Flair theme */}
@@ -67,17 +66,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTerminal, onOpenArchitecture }
               <span>View Source</span>
             </button>
 
-            <button
-              onClick={() => {
-                playClickSound();
-                onOpenTerminal();
-              }}
-              onMouseEnter={playHoverSound}
-              className="px-6 py-3.5 rounded-full border border-indigo-500/40 bg-indigo-500/10 text-indigo-300 hover:border-indigo-400 hover:bg-indigo-500/20 transition-all text-xs font-mono font-semibold uppercase tracking-wider flex items-center gap-2"
-            >
-              <span className="material-symbols-outlined text-sm text-indigo-400">smart_toy</span>
-              <span>Ask AI Agent</span>
-            </button>
           </div>
         </div>
 
